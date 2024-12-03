@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias de Postres</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #a3b3e0;
+        }
+
+        header {
+            background-color: #6171ff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #7f96ff;
+            padding: 10px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .postres, .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .postre, .galeria img {
+            width: 200px;
+            margin: 10px;
+        }
+
+        .postre img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .postre {
+            text-align: center;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #6461ff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        form button:hover {
+            background-color: #7b54e6;
+        }
+
+        .contacto, .reseñas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .galeria img {
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #6179ff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .postres, .galeria {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .postre, .galeria img {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Delicias de Postres</h1>
+        <p>Postres personalizados para cada ocasión</p>
+    </header>
+    <nav>
+        <a href="#postres">Postres</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#galeria">Galería</a>
+        <a href="#resenas">Reseñas</a>
+    </nav>
+
+    <section id="postres">
+        <h2>Postres Disponibles</h2>
+        <div class="postres">
+            <div class="postre">
+                <img src="postre1.jpg" alt="Postre 1">
+                <h3>Tarta de Chocolate</h3>
+                <p>Ingredientes: chocolate, harina, azúcar, huevos.</p>
+            </div>
+            <div class="postre">
+                <img src="postre2.jpg" alt="Postre 2">
+                <h3>Cheesecake</h3>
+                <p>Ingredientes: queso crema, galletas, azúcar, frutos rojos.</p>
+            </div>
+            <div class="postre">
+                <img src="postre3.jpg" alt="Postre 3">
+                <h3>Brownies</h3>
+                <p>Ingredientes: chocolate, nueces, mantequilla, harina.</p>
+            </div>
+            <div class="postre">
+                <img src="postre4.jpg" alt="Postre 4">
+                <h3>Tiramisu</h3>
+                <p>Ingredientes: café, mascarpone, bizcocho, cacao.</p>
+            </div>
+            <div class="postre">
+                <img src="postre5.jpg" alt="Postre 5">
+                <h3>Genovesa</h3>
+                <p>Ingredientes: Harina, crema de leche, lechera, chocolate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>Soy una apasionada de la repostería que crea postres personalizados para eventos especiales. Mis recetas están hechas con amor y los mejores ingredientes.</p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form action="#">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" required>
+            
+            <label for="telefono">Número de Contacto</label>
+            <input type="tel" id="telefono" name="telefono" required>
+            
+            <label for="postre">Selecciona tu Postre</label>
+            <select id="postre" name="postre" required>
+                <option value="tarta-chocolate">Tarta de Chocolate</option>
+                <option value="cheesecake">Cheesecake</option>
+                <option value="brownies">Brownies</option>
+                <option value="tiramisu">Tiramisu</option>
+                <option value="macarons">Macarons</option>
+            </select>
+            
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </section>
+
+    <section id="resenas">
+        <h2>Reseñas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Reseña</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nombre</td>
+                    <td>¡Los mejores postres que he probado!</td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Excelente servicio y calidad.</td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Los macarons son increíbles, los recomiendo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="galeria">
+            <img src="postre1.jpg" alt="Tarta de Chocolate">
+            <img src="postre2.jpg" alt="Cheesecake">
+            <img src="postre3.jpg" alt="Brownies">
+            <img src="postre4.jpg" alt="Tiramisu">
+            <img src="postre5.jpg" alt="Macarons">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Blueberry. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
