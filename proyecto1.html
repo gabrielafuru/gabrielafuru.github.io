@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias de Postres</title>
+    <!-- Botón Volver a Arriba -->
+    <button id="btnVolverArriba" title="Volver arriba">↑</button>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url(blueberrys.jpg);
+            color: #333;
+        }
+
+        header {
+            background: #61a0ff;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #647ffa;
+            padding: 10px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes slide {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-100%); }
+            50%, 70% { transform: translateX(-200%); }
+            75%, 95% { transform: translateX(-300%); }
+            100% { transform: translateX(-400%); }
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #617eff;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .postres, .galeria {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .postre {
+            background: rgb(79, 126, 255);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .precio p {
+            color:#9fadec;
+        }
+        .postre img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .postre h3 {
+            margin: 10px 0;
+            color: #ffffff;
+        }
+        form {
+            background: rgb(181, 191, 248);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #6461ff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        form button:hover {
+            background-color: #6354e6;
+        }
+
+        .reseñas {
+            max-width: 800px;
+            margin: auto;
+            background: rgb(174, 208, 247);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .reseña {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        footer {
+            background-color: #6b61ff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .postres, .galeria {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .postre {
+                width: 400px;
+                height: 400px;
+            }
+            .galeria {
+                width: 400px;
+                height: 35%;
+
+            }
+
+            .slider img {
+                height: 250px;
+            }
+            
+        }
+           /* Estilos para el botón "Volver a Arriba" */
+    #btnVolverArriba {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        background-color: #007bff; /* Color azul moderno */
+        color: white;
+        border: none;
+        padding: 8px 10px; /* Botón pequeño */
+        border-radius: 50%; /* Forma circular */
+        font-size: 1rem; /* Texto pequeño */
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+        display: none; /* Oculto por defecto */
+        transition: all 0.3s ease-in-out;
+    }
+
+    #btnVolverArriba:hover {
+        background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+    }
+    
+    .slider-container {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+        height: 400px;
+        
+    }
+
+    .slide {
+        min-width: 100%;
+        height: auto;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blueberry</h1>
+        <p>¡Los mejores postres personalizados para tus gustos!</p>
+    </header>
+    <nav>
+        <a href="#postres">Postres</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#galeria">Galería</a>
+        <a href="#resenas">Reseñas</a>
+    </nav>
+
+        <div class="slider-container">
+            <div class="slider">
+                <img src="foto1.jpg" alt="Imagen 1" class="slide">
+                <img src="foto 2.jpg" alt="Imagen 2" class="slide">
+                <img src="foto3.avif" alt="Imagen 3" class="slide">
+                <img src="foto4.jpg" alt="Imagen 2" class="slide">
+                <img src="foto5.jpg" alt="Imagen 3" class="slide">
+            </div>
+            <!-- Botones de control -->
+            <button class="prev" onclick="cambiarSlide(-1)">❮</button>
+            <button class="next" onclick="cambiarSlide(1)">❯</button>
+        </div>
+
+    <section id="postres">
+        <h2>Postres</h2>
+        <div class="postres">
+            <div class="postre">
+                <img src="pastel-chocolate.jpeg" alt="Postre 1">
+                <h3>Tarta de Chocolate</h3>
+                <p>Ingredientes: chocolate, harina, azúcar, huevos.</p>
+                <div class="precio">
+                <p>$5000 Porcion personal</p>
+                <p>$50000 Postre completo</p>
+                </div>
+            </div>
+            <div class="postre">
+                <img src="cheesecake.jpg" alt="Postre 2">
+                <h3>Cheesecake</h3>
+                <p>Ingredientes: queso crema, galletas, azúcar, frutos rojos.</p>
+                <div class="precio">
+                    <p>$8000 Porción personal</p>
+                    <p>%50000 Postre completo</p>
+                </div>
+            </div>
+            <div class="postre">
+                <img src="brownie.jpg" alt="Postre 3">
+                <h3>Brownies</h3>
+                <p>Ingredientes: chocolate, nueces, mantequilla, harina.</p>
+                <div class="precio">
+                    <p>$5000 Porcion personal</p>
+                    <p>$50000 Postre completo</p>
+                    </div>
+            </div>
+            <div class="postre">
+                <img src="tiramisu.png" alt="Postre 4">
+                <h3>Tiramisu</h3>
+                <p>Ingredientes: café, mascarpone, bizcocho, cacao.</p>
+                <div class="precio">
+                    <p>$5000 Porcion personal</p>
+                    <p>$50000 Postre completo</p>
+                    </div>
+            </div>
+            <div class="postre">
+                <img src="genovesa.jpg" alt="Postre 5">
+                <h3>Genovesa</h3>
+                <p>Ingredientes: Harina, crema de leche, lechera, chocolate.</p>
+                <div class="precio">
+                    <p>$5000 Porcion personal</p>
+                    <p>$50000 Postre completo</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>Soy una apasionada de la repostería que crea postres personalizados para eventos especiales. Mis recetas están hechas con amor y los mejores ingredientes.</p>
+        <p>Me encanta la comida y los postres italianos y espero visitar italia algun dia</p>
+    </section>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form action="#">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" required>
+            
+            <label for="telefono">Número de Contacto</label>
+            <input type="tel" id="telefono" name="telefono" required>
+            
+            <label for="postre">Selecciona tu Postre</label>
+            <select id="postre" name="postre" required>
+                <option value="tarta-chocolate">Tarta de Chocolate</option>
+                <option value="cheesecake">Cheesecake</option>
+                <option value="brownies">Brownies</option>
+                <option value="tiramisu">Tiramisu</option>
+                <option value="macarons">Macarons</option>
+            </select>
+            
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </section>
+    <section id="resenas">
+        <h2>Reseñas</h2>
+        <form id="form-resena">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="mensaje">Reseña:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar Reseña</button>
+        </form>
+        <div class="reseñas" id="lista-resenas">
+            <!-- Las reseñas aparecerán aquí -->
+        </div>
+    </section>
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="galeria">
+            <img src="pastel-chocolate.jpeg" alt="Tarta de Chocolate">
+            <img src="cheesecake.jpg" alt="Cheesecake">
+            <img src="brownie.jpg" alt="Brownies">
+            <img src="tiramisu.png" alt="Tiramisu">
+            <img src="genovesa.jpg" alt="Macarons">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Blueberry</p>
+    </footer>
+
+    <script>
+        document.getElementById('form-resena').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const reseñas = document.getElementById('lista-resenas');
+            const nuevaReseña = document.createElement('div');
+            nuevaReseña.classList.add('reseña');
+            nuevaReseña.innerHTML = `<strong>${nombre}</strong><p>${mensaje}</p>`;
+
+            reseñas.appendChild(nuevaReseña);
+
+            this.reset();
+        });
+            // Mostrar el botón al hacer scroll
+    const btnVolverArriba = document.getElementById('btnVolverArriba');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Mostrar al pasar 300px
+            btnVolverArriba.style.display = 'block';
+        } else {
+            btnVolverArriba.style.display = 'none';
+        }
+    });
+
+    // Función para deslizar hacia arriba suavemente
+    btnVolverArriba.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    let index = 0;
+
+    function cambiarSlide(direccion) {
+        const slides = document.querySelectorAll('.slide');
+        const slider = document.querySelector('.slider');
+        const totalSlides = slides.length;
+
+        // Actualizar el índice
+        index += direccion;
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+
+        // Mover el slider
+        slider.style.transform = `translateX(${-index * 100}%)`;
+    }
+    </script>
+</body>
+</html>
