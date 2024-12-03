@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            background-image: url(descarga.jpg);
+            background-image: url(fondo.jpg);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -18,13 +18,15 @@
         .container {
             display: flex;
             width: 100%;
+            
         }
 
         .sidebar {
             width: 35%;
-            background-color: #8f6ce2;
+            background-color: #6387e9;
             padding: 20px;
             text-align: center;
+            height:100%;
         }
 
         .sidebar img {
@@ -64,7 +66,7 @@
         .main h3 {
             margin: 10px 0;
             font-weight: normal;
-            color: #8f6ce2;
+            color: #6387e9;
         }
 
         .main .section-title {
@@ -72,7 +74,7 @@
             margin-top: 30px;
             margin-bottom: 15px;
             font-weight: bold;
-            border-bottom: 2px solid #8f6ce2;
+            border-bottom: 2px solid #6387e9;
             padding-bottom: 5px;
         }
 
@@ -100,7 +102,18 @@
         .skills-languages ul li {
             margin: 5px 0;
         }
-        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #6387e9;
+            text-align: left;
+        }
+        th {
+            background-color: #6387e9;
+        }
     </style>
 </head>
 <body>
@@ -116,51 +129,53 @@
             <a href="contacto.html">Contacto</a>
             </div>
 
-            <div class="section-title">Información de Contacto</div>
-            <p>📞 (311) 488-0711</p>
-            <p>📧 Gabriela Fuentes Rueda</p>
-            <p>🌐 21 de Julio 2004 - Valencia, España</p>
-            <p>📍 Colombia</p>
+            <div class="section-title">Estudios Adicionales</div>
+            <p>Diplomado Virtual En Diseño Arquitectonico AUTOCAD</p>
 
-            <div class="section-title">Mascotas</div>
-            <p><strong>Zeus Puguentes</strong><br>9 Años</p>
-
-            <div class="section-title">Sobre Mí</div>
-            <p>Tengo 20 años :D</p>
-
-            <div class="section-title">Cancion Favorita</div>
-            <p>Prequel - Falling in Reverse</p>
+            <div class="section-title">Deportes</div>
+            <p>Seleccion Universitaria de Porrismo</p>
 
         </div>
         <div class="main">
             <h1>Gabriela Fuentes Rueda</h1>
-            <h3>Estudiante Ingenieria Civil</h3>
+            <h3>Estudiante Ingeniera Civil</h3>
 
-            <div class="section-title">Hobbies</div>
+            <div class="section-title">Educación y Trayectoria</div>
             <div>
-                <p class="job-title">Tejer</p>
-                <p>Crear busos, camisas, decoraciones etc...</p>
+                <p class="job-title">2021 - Educacion Media Bachillerato</p>
+                <p>Colegio de la Presentación Bucaramanga</p>
             </div>
             <div>
-                <p class="job-title">Pintar</p>
-                <p>Acuarela, Acrilico y Guache</p>
+                <p class="job-title">2023 - Diplomado Virtual Diseño Arquitectonico AUTOCAD</p>
+                <p>Politecnico de Colombia</p>
             </div>
             <div>
-                <p class="job-title">Leer</p>
-                <p>Romance, Ficción, Novelas</p>
+                <p class="job-title">2023 - Actualidad Ingenieria Civil</p>
+                <p>Universidad Pontificia Bolivariana seccional Bucaramanga</p>
             </div>
             <div>
-                <p class="job-title">Escuchar Musica</p>
-                <p>Pop, Rock, un poco de todo.</p>
+                <p class="job-title">2025 - Actualidad Tecnico por Competencias en Programacion de Software</p>
+                <p>Universidad Pontificia Bolivariana seccional Bucaramanga</p>
             </div>
-            <div>
-                <p class="job-title">Video Juegos</p>
-                <p>Valorant, Minecraft, Stardew valley, GTA V</p>
-            </div>
-            
+            <table>
+                <tr>
+                    <th colspan="2">Horario</th>
+                </tr>
+                <tr>
+                    <td>Transito</td>
+                    <td>Miercoles 10:00 - 12:00</td>
+                    
+                </tr>
+                <tr>
+                    <td rowspan="2">Materiales De Consturccion</td>
+                    <td>Martes 4:00 - 6:00</td>
+                </tr>
+                <tr>
+                    <td>Viernes 8:00 - 10:00</td>
+                </tr>
+            </table>
         </div>
         
     </div>
-    
 </body>
 </html>
